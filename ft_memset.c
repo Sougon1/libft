@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/17 13:21:10 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/17 14:12:45 by ghumm            ###   ########.fr       */
+/*   Created: 2023/10/17 14:03:23 by ghumm             #+#    #+#             */
+/*   Updated: 2023/10/17 15:45:47 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stddef.h>
 
-size_t	ft_strlen(const char *a)
+void	*ft_memset(void *s, int a, size_t v)
 {
-	int	v;
+	unsigned char	*p;
 
-	v = 0;
-	while (a[v] != 0)
-		v++;
-	return (v);
+	p = s;
+	while (v > 0)
+	{
+		*p = a;
+		p++;
+		v--;
+	}
+	return (s);
 }
+/*
+#include <stdio.h>
+int main() {
+    char s[] = "Coucou c'est moi !";
+
+    ft_memset(s, '*', 5);
+
+    printf("Contenu du tableau : %s\n", s);
+
+    return 0;
+}
+*/
