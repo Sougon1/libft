@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 09:42:33 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/18 14:30:43 by ghumm            ###   ########.fr       */
+/*   Created: 2023/10/18 14:31:50 by ghumm             #+#    #+#             */
+/*   Updated: 2023/10/18 16:26:13 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	char	*dest1;
-	char	*src1;
-	size_t	i;
+	size_t	v;
 
-	i = 0;
-	dest1 = (char *) dest;
-	src1 = (char *) src;
-	while (i != n)
+	v = 0;
+	if (size == 0)
+		return (0);
+	else
 	{
-		dest1[i] = src1[i];
-		i++;
+		while (size > 0 && src[v] != 0)
+		{
+			dest[v] = src[v];
+			size--;
+			v++;
+		}
+		dest[v] = '\0';
 	}
-	return (dest);
 }
-/*
-#include <stdio.h>
-int main ()
-{
-	char dest[11];
-	char *src = "coucou c'est moi !";
-	ft_memcpy(dest, src, 11);
-	printf("%s\n", dest);
 
-}*/
+#include <stdio.h>
+int main()
+{
+	char dest[20];
+	char *src = "Coucou c'est moi !";
+
+	ft_strlcpy(dest, src, 20);
+	printf("%s\n", dest);
+}
