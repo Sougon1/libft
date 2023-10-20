@@ -6,18 +6,19 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:31:50 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/20 11:27:44 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/20 13:37:51 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <string.h>
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	v;
 
 	v = 0;
 	if (size == 0)
-		return strlen(src);
+		return (strlen(src));
 	while (size - 1 > v && src[v] != 0)
 	{
 		dst[v] = src[v];
@@ -27,9 +28,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	v = 0;
 	while (src[v] != 0)
 		v++;
-	return v;	
+	return (v);
 }
-
+/*
 #include <stdio.h>
 int main()
 {
@@ -42,4 +43,4 @@ int main()
     printf("%ld\n", strlen(dst));
 
 
-}
+}*/
