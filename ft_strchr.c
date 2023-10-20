@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/20 14:36:08 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/20 15:24:42 by ghumm            ###   ########.fr       */
+/*   Created: 2023/10/20 15:25:03 by ghumm             #+#    #+#             */
+/*   Updated: 2023/10/20 16:01:20 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <ctype.h>
+#include <string.h>
 
-int	ft_toupper(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if (c >= 97 && c <= 122)
-		(c -= 32);
-	return (c);
+	int	a;
+
+	a = 0;
+	while (s[a] != '\0')
+	{
+		if (s[a] == c)
+			return ((char *)(s + a));
+		a++;
+	}
+	return (NULL);
 }
 /*
 #include <stdio.h>
-int main()
+int	main(void)
 {
-	int str = 'a';
+	char	*str = "asfhkjwqhf,sn";
+	char	*result = ft_strchr(str, 's');
 
-	printf("%c\n", ft_toupper(str));
+	if (result != NULL) {
+		printf("Le caractère 'k' trouvé à l'index %ld .\n", result - str);
+	} else {
+		printf("Le caractère 'k' n'a pas été trouvé dans la chaîne.\n");
+		}
 }*/
