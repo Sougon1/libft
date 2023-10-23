@@ -6,32 +6,34 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:15:16 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 13:17:41 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:22:49 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <string.h>
 #include <bsd/string.h>
 
-char *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t i = 0;
-	size_t v = strlen(little);
-		
+	size_t	i;
+	size_t	v;
+
+	i = 0;
+	v = strlen(little); //////////////// A CHANGER => fT_strlen
 	if (v == 0)
-		return (char *)big;
+		return ((char *)big);
 	while (*big != '\0' && len >= v)
 	{
 		while (i < v && big[i] == little[i])
 			i++;
 		if (i == v)
-			return (char *)big;
+			return ((char *)big);
 		big++;
 		len--;
 	}
 	return (NULL);
 }
-
+/*
 #include <stdio.h>
 int main()
 {
@@ -53,4 +55,4 @@ int main()
         printf("Le mot '%s' a été retrouvé dans '%s'\n", to_find, res2);
 
 return 0;
-}
+}*/

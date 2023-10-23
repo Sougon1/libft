@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:47:15 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 09:44:58 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:17:06 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -23,8 +23,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	{
 		if (s1[a] != s2[b])
 			return (s1[a] - s2[b]);
-	a++;
-	b++;
+		a++;
+		b++;
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:17:12 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/20 18:00:06 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:14:02 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)(s + a));
 	return (NULL);
 }
-
+/*
 #include <stdio.h>
 int main()
 {
@@ -33,4 +33,4 @@ int main()
 		printf("caractere o est trouvee a la %s position\n", res);
 	else
 		printf("caratere non trouvee\n");
-}
+}*/

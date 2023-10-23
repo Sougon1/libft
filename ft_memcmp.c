@@ -6,15 +6,15 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 10:41:52 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 11:14:32 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/23 16:16:02 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned const char *s3;
-	unsigned const char *s4;
+	unsigned const char	*s3;
+	unsigned const char	*s4;
 
 	s3 = s1;
 	s4 = s2;
