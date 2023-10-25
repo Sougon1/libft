@@ -6,11 +6,12 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 15:46:22 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/17 16:07:18 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 11:47:57 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-void	bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;
 

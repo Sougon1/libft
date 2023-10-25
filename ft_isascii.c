@@ -6,11 +6,12 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:25:47 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/17 12:27:18 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 12:05:55 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-int	ft_isascii(char a)
+int	ft_isascii(int a)
 {
 	if (a >= 0 && a <= 127)
 		return (1);

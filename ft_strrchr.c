@@ -6,19 +6,22 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:17:12 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 16:14:02 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 15:32:41 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
 	int	a;
 
 	a = strlen(s) - 1;
-	while (a-- >= 0)
+	while (a >= 0)
+	{
 		if (s[a] == c)
 			return ((char *)(s + a));
+		a--;
+	}
 	return (NULL);
 }
 /*

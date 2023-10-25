@@ -6,12 +6,10 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:15:16 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 16:22:49 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 11:53:32 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include <string.h>
-#include <bsd/string.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -19,7 +17,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	v;
 
 	i = 0;
-	v = strlen(little); //////////////// A CHANGER => fT_strlen
+	v = ft_strlen(little);
 	if (v == 0)
 		return ((char *)big);
 	while (*big != '\0' && len >= v)

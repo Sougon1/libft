@@ -6,9 +6,10 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:19:02 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 16:18:01 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 12:04:06 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -17,7 +18,7 @@ int	ft_atoi(const char *nptr)
 
 	sign = 1;
 	valeur = 0;
-	while (*nptr >= 9 && *nptr <= 13 || *nptr == 32)
+	while ((*nptr >= 9 && *nptr <= 13) || *nptr == 32)
 		nptr++;
 	if (*nptr == 45 || *nptr == 43)
 	{

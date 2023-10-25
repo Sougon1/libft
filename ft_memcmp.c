@@ -6,10 +6,10 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 10:41:52 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 16:16:02 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 15:29:49 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -18,10 +18,13 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	s3 = s1;
 	s4 = s2;
-	while (n-- > 0 && *s3++ != '\0' && *s4++ != '\0')
+	while (n > 0 && *s3 != '\0' && *s4 != '\0')
 	{
 		if (*s3 != *s4)
 			return (*s3 - *s4);
+		n--;
+		s3++;
+		s4++;
 	}
 	return (0);
 }
@@ -30,10 +33,10 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 #include <string.h>
 int main()
 {
-	const char *str1 = "Hello World !";
-	const char *str2 = "Hello world !";
-	int taille = 5;
-	int taille1 = 10;
+	const char *str1 = "abc";
+	const char *str2 = "abc";
+	int taille = 7;
+	int taille1 = 7;
 	
 	int a = ft_memcmp(str1 ,str2 , taille);
 	int b = ft_memcmp(str1 ,str2 , taille1);

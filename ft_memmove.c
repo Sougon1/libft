@@ -6,10 +6,10 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 10:43:00 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/18 14:28:48 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 11:51:06 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

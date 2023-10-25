@@ -6,11 +6,10 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:47:15 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/23 16:17:06 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/24 15:30:22 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -19,12 +18,15 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	a = 0;
 	b = 0;
-	while (n-- > 0)
+	while (n > 0)
 	{
 		if (s1[a] != s2[b])
 			return (s1[a] - s2[b]);
+		if (*s1 || *s2 == '\0')
+			return (0);
 		a++;
 		b++;
+		n--;
 	}
 	return (0);
 }
@@ -32,8 +34,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 #include <stdio.h>
 int main()
 {
-	char *str1 = "123456789";
-	char *str2 = "123446789";
+	char *str1 = "abc";
+	char *str2 = "abc";
 	char *str3 = "123456789";
 	char *str4 = "123456759";
 	size_t n = 7;
