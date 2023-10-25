@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 09:42:33 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/25 12:30:13 by ghumm            ###   ########.fr       */
+/*   Created: 2023/10/25 12:33:43 by ghumm             #+#    #+#             */
+/*   Updated: 2023/10/25 12:40:02 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char		*dest1;
-	const char	*src1;
-	size_t		i;
+	void	*ptr;
 
-	if (dest == NULL && src == NULL && n > 0)
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
 		return (NULL);
-	i = 0;
-	dest1 = (char *) dest;
-	src1 = (const char *) src;
-	while (i < n)
-	{
-		dest1[i] = src1[i];
-		i++;
-	}
-	return (dest);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
-/*
-#include <stdio.h>
-int main ()
-{
-	char dest[11];
-	char *src = "coucou c'est moi !";
-	ft_memcpy(dest, src, 11);
-	printf("%s\n", dest);
-
-}*/
