@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:15:16 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/24 11:53:32 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/25 11:11:31 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -22,6 +22,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *)big);
 	while (*big != '\0' && len >= v)
 	{
+		i = 0;
 		while (i < v && big[i] == little[i])
 			i++;
 		if (i == v)
