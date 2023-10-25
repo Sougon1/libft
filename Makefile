@@ -35,6 +35,7 @@ SRC				= ft_atoi.c \
 				ft_toupper.c \
  				ft_calloc.c \
 				ft_strdup.c \
+				ft_substr.c \
 
 OBJ			 	= $(SRC:.c=.o)
 
