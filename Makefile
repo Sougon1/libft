@@ -33,9 +33,9 @@ SRC				= ft_atoi.c \
 				ft_strrchr.c \
 				ft_tolower.c \
 				ft_toupper.c \
- 				ft_calloc.c \
+# 				ft_calloc.c \
 
-OBJ			 	= $(OBJ:.c=.o)
+OBJ			 	= $(SRC:.c=.o)
 
 #####################################
 ### RULES
@@ -51,7 +51,7 @@ ${NAME}: ${OBJ}
 clean :
 	rm -rf ${OBJ}
 	
-flcean: clean
+fclean: clean
 	rm -rf ${NAME}
 
 re: fclean all

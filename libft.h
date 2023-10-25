@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:13:53 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/25 10:13:56 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/25 10:15:29 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int a, size_t v);
+void	*calloc(size_t nmemb, size_t size);
 
 #endif
