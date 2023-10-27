@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:59 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/27 15:19:50 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/27 16:08:25 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,6 +17,7 @@ static int	nbr_mot(char const *s, char c)
 	int mot;
 	
 	mot = 0;
+	i = 1;
 	while (*s)
 	{
 		if (*s == c)
@@ -31,22 +32,47 @@ static int	nbr_mot(char const *s, char c)
 	return (mot);
 }
 
+static char	*mot(const char *s, char c)
+{
+	size_t	start;
+	char	*ptr;
+
+	start = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			start++;
+			s++;
+		}
+		else 
+			break;
+	}
+	ptr = ((char *)malloc(start + 1);
+	if (!(ptr))
+		return (NULL);
+	ft_memcpy(ptr, s - start, start);
+	ptr[start] = '\0';
+	return (ptr);
+}
+
 
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
+//	size_t	i;
 	char	**ptr;
 	char	*ptr2;
 
-	i = 0;
+//	i = 0;
 	if (s == NULL)
 		return (NULL);
-	if (c == '\0')
+	if (c == '\0') // pareil que celui en bas
 		return (s);
-	if (ft_strchr(*s, c) == NULL)==> a retourner s dans **ptr[0]
+	if (ft_strchr(*s, c) == NULL) //==> a retourner s dans **ptr[0]
 		return (s);
-	else
+
+/*	else
 		while (*s)
 		{
 			if (*s == c)
@@ -56,14 +82,9 @@ char	**ft_split(char const *s, char c)
 				i++;
 			}
 			s++;
-		}
-	ptr = ((char *)malloc(i + 1));
+		}*/
+	ptr = ((char **)malloc(nbr_mot(s, c) + 1));
 	if (!(ptr))
 		return (NULL);
-	while (*ptr)
-	{
-		ptr2 = (char *)malloc(ft_substr(s, ft_strtrim(s), ft_strlen(ft_strtrim(s, c))));
-		*ptr++;
- 		ptr2++;
- 	}
+		
  }
