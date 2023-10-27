@@ -6,12 +6,30 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:59 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/27 15:12:16 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/27 15:19:50 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-
+static int	nbr_mot(char const *s, char c)
+{
+	int	i;
+	int mot;
+	
+	mot = 0;
+	while (*s)
+	{
+		if (*s == c)
+			i = 0;
+		else if (i == 0)
+		{
+			i = 1;
+			mot++;
+		}
+		s++;
+	}
+	return (mot);
+}
 
 
 
