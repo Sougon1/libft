@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:59 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/31 13:24:53 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/31 16:28:02 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -82,24 +82,20 @@ char	*cpynul(char const *s)
 {
 	int		i;
 	char	*dest;
-	int 	n;
+	int		j;
 
-	n = 0;
-	while (*s)
-		n++;
+	j = 0;
+	if (s[0] == '\0')
+		return (NULL);
 	dest = (char *)malloc(ft_strlen(s) + 1);
 	if (!(dest))
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s[j])
 	{
-		dest[i] = s[i];
-		if (s[i] == 0)
-		{
-			i++;
-		}
+		dest[i] = s[j];
+		j++;
 		i++;
-
 	}
 	dest[i] = '\0';
 	return (dest);
@@ -125,7 +121,7 @@ char	**ft_split(char const *s, char c)
 /*
 int main()
 {
-	const char *str = "\0aa\0bbb";
+	const char *str = "aa\0bbb";
 	char c = '\0';
 
 	char **res = ft_split(str, c);
@@ -135,7 +131,4 @@ int main()
 		printf ("resultat[%d] = %s\n",i ,res[i]);
 		i++;
 	}
-	free(res);
-
 }*/
-

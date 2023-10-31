@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 16:28:50 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/25 12:44:05 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/31 15:14:53 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -36,7 +36,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (v1);
 }
 /*
-#include <stdio.h>
 int main()
 {
 	char dst[10]= "ab";
