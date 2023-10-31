@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:59 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/27 16:08:25 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/31 13:24:53 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,8 +14,8 @@
 static int	nbr_mot(char const *s, char c)
 {
 	int	i;
-	int mot;
-	
+	int	mot;
+
 	mot = 0;
 	i = 0;
 	while (*s)
@@ -43,7 +43,7 @@ static char	*mot(const char *s, char c)
 		start++;
 		s++;
 	}
-	ptr = ((char *)malloc(start + 1) * sizeof(char *));
+	ptr = (char *)malloc(start + 1);
 	if (!(ptr))
 		return (NULL);
 	ft_memcpy(ptr, s - start, start);
@@ -53,9 +53,9 @@ static char	*mot(const char *s, char c)
 
 static char	**sep_mot(const char *s, char c)
 {
-	int	nbr_mot2;
+	int		nbr_mot2;
 	char	**ptr;
-	int	i;
+	int		i;
 
 	nbr_mot2 = nbr_mot(s, c);
 	ptr = (char **)malloc((nbr_mot2 + 1) * sizeof(char *));
@@ -75,27 +75,67 @@ static char	**sep_mot(const char *s, char c)
 			s++;
 	}
 	ptr[i] = NULL;
-	return(ptr);
+	return (ptr);
+}
+
+char	*cpynul(char const *s)
+{
+	int		i;
+	char	*dest;
+	int 	n;
+
+	n = 0;
+	while (*s)
+		n++;
+	dest = (char *)malloc(ft_strlen(s) + 1);
+	if (!(dest))
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		dest[i] = s[i];
+		if (s[i] == 0)
+		{
+			i++;
+		}
+		i++;
+
+	}
+	dest[i] = '\0';
+	return (dest);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
-	char	*ptr2;
-	int 	i;
 
 	if (s == NULL)
 		return (NULL);
-	if (c == '\0' || ft_strchr(s, c) == NULL)
+	if (c == '\0')
 	{
 		ptr = (char **)malloc(2 * sizeof(char *));
 		if (!(ptr))
 			return (NULL);
-		ptr[0] = ft_strdup(s);
+		ptr[0] = cpynul(s);
 		ptr[1] = NULL;
 		return (ptr);
 	}
-	ptr = sep_mot(s, c);	
-	return (ptr);
-	free(ptr);
- }
+	return (sep_mot(s, c));
+}
+/*
+int main()
+{
+	const char *str = "\0aa\0bbb";
+	char c = '\0';
+
+	char **res = ft_split(str, c);
+	int i = 0;
+	while (res[i] != NULL)
+	{
+		printf ("resultat[%d] = %s\n",i ,res[i]);
+		i++;
+	}
+	free(res);
+
+}*/
+

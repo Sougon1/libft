@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:13:53 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/25 16:46:29 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/10/31 10:13:33 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <string.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *litlle, size_t len);
