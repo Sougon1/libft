@@ -12,7 +12,8 @@ char	*ft_itoa(int n)
 	nbr = n;
 	i = 0;
 	signe = 0;
-
+	if (//valeur min int)
+		return (ft_strdup(valeur min int));
 	while (nbr != 0)
 	{
 		nbr /= 10;
@@ -31,7 +32,7 @@ char	*ft_itoa(int n)
 	}
 	if (n < 0)
 	{
-		signe = "-";
+		signe = '-';
 		n = -n;
 		i++;
 	}
@@ -48,6 +49,5 @@ char	*ft_itoa(int n)
 	}
 	if (signe)
 		ptr[0] = signe;
-	*ptr = '\0';
 	return (ptr);
 }
