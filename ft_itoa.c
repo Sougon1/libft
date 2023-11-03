@@ -1,53 +1,59 @@
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/03 09:47:19 by ghumm             #+#    #+#             */
+/*   Updated: 2023/11/03 11:51:10 by ghumm            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
+
+static int	lenn(int n)
+{
+	int	len;
+
+	len = 0;
+	while (n != 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+static int	nneg(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
 
 char	*ft_itoa(int n)
 {
 	char	*ptr;
-	char	signe;
-	int	i;
-	int	nbr;
+	int		len;
+	int		neg;
 
-	nbr = n;
-	i = 0;
-	signe = 0;
-	if (//valeur min int)
-		return (ft_strdup(valeur min int));
-	while (nbr != 0)
-	{
-		nbr /= 10;
-		i++;
-	}
-
+	neg = (n < 0);
+	len = lenn(n);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	if (n == 0)
-	{
-		ptr = (char *)malloc(2);
-		if (ptr)
-		{
-			ptr[0] = '0';
-			ptr[1] = '\0';
-		}
-		return (ptr);
-	}
-	if (n < 0)
-	{
-		signe = '-';
-		n = -n;
-		i++;
-	}
-
-	ptr = (char *)malloc(i + 1);
-	if (!(ptr))
+		return (ft_strdup("0"));
+	ptr = (char *)malloc(len + 1 + neg);
+	if (!ptr)
 		return (NULL);
-	ptr[i] = '\0';
-	while (n != 0)
+	ptr[len + neg] = '\0';
+	while (len > 0)
 	{
-		i--;
-		ptr[i] = (n % 10) + 48;
+		ptr[len - 1 + neg] = nneg(n % 10) + '0';
 		n /= 10;
+		len--;
 	}
-	if (signe)
-		ptr[0] = signe;
+	if (neg)
+		ptr[0] = '-';
 	return (ptr);
 }
