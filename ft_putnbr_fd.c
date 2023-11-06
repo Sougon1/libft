@@ -6,28 +6,27 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:18:17 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/03 16:06:00 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/06 10:11:48 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	*nbr;
-	
+	char	digit;
+
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
 	if (n < 0)
 	{
 		write(fd, "-", 1);
 		n = -n;
 	}
-	if (n == 0)
-		write(fd, "0", 1);
-	else
-	{
-		while (n > 0
-	}
-
-
-
-	write(fd, nbr, ft_strlen(nbr));
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	digit = (char)('0' + (n % 10));
+	write(fd, &digit, 1);
 }
