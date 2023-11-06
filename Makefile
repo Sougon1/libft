@@ -1,3 +1,6 @@
+############################################
+####### ARGUMENTS
+
 NAME			= libft.a
 CC				= gcc
 CFLAGS			= -Wall -Werror -Wextra
@@ -46,6 +49,7 @@ SRC				= ft_atoi.c \
 				ft_putstr_fd.c \
 				ft_putendl_fd.c \
 				ft_putnbr_fd.c \
+				ft_lstnew_bonus.c \
 
 OBJ			 	= $(SRC:.c=.o)
 
@@ -68,4 +72,6 @@ fclean: clean
 
 re: fclean all
 
+bonus: 
+		 $
 .PHONY: all clean flcean re
