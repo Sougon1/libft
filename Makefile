@@ -49,29 +49,38 @@ SRC				= ft_atoi.c \
 				ft_putstr_fd.c \
 				ft_putendl_fd.c \
 				ft_putnbr_fd.c \
-				ft_lstnew_bonus.c \
 
 OBJ			 	= $(SRC:.c=.o)
+
+
+
+SRC_BONUS		= ft_lstnew_bonus.c \
+
+
+OBJ_BONUS		= $(SRC_BONUS:.c=.o)
+
+
 
 #####################################
 ### RULES
 
 all: ${NAME}
 
-${NAME}: ${OBJ}
+${NAME}: ${OBJ} 
 		 ${AR} $@ $^
 
 %.o: %.c
 		${CC} ${CFLAGS} -c $< -o $@
 		
 clean :
-	rm -rf ${OBJ}
+	rm -rf ${OBJ} ${OBJ_BONUS}
 	
 fclean: clean
 	rm -rf ${NAME}
 
 re: fclean all
 
-bonus: 
-		 $
-.PHONY: all clean flcean re
+bonus: ${OBJ_BONUS}
+		${AR} ${NAME} ${OBJ_BONUS}
+
+.PHONY: all clean flcean re bonus
