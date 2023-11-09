@@ -21,12 +21,13 @@
 
 typedef struct s_list
 {
-	void			*content;
+	void		*content;
 	struct s_list	*next;
 }	t_list;
 
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *litlle, size_t len);
@@ -55,6 +56,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *a);
 
+void	ft_lstiter(t_list *lst, void (*f)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_putnbr_fd(int n, int fd);
