@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:59 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/31 16:28:02 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/10 10:29:47 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -78,7 +78,7 @@ static char	**sep_mot(const char *s, char c)
 	return (ptr);
 }
 
-char	*cpynul(char const *s)
+static char	*cpynul(char const *s)
 {
 	int		i;
 	char	*dest;

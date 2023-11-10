@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 10:13:53 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/06 16:29:29 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/10 10:01:36 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_list
 {
-	void		*content;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
 
