@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:59 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/10 10:29:47 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/13 13:09:11 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -30,6 +30,22 @@ static int	nbr_mot(char const *s, char c)
 		s++;
 	}
 	return (mot);
+}
+
+static void	free_mem(char **s)
+{
+	int	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+		{
+			free(s[i]);
+			i++;
+		}
+		free(s);
+	}
 }
 
 static char	*mot(const char *s, char c)
@@ -69,6 +85,11 @@ static char	**sep_mot(const char *s, char c)
 		if (*s)
 		{
 			ptr[i] = mot(s, c);
+			if (ptr[i] == NULL)
+			{
+				free_mem(ptr);
+				return (NULL);
+			}
 			i++;
 		}
 		while (*s && *s != c)
@@ -78,45 +99,16 @@ static char	**sep_mot(const char *s, char c)
 	return (ptr);
 }
 
-static char	*cpynul(char const *s)
-{
-	int		i;
-	char	*dest;
-	int		j;
-
-	j = 0;
-	if (s[0] == '\0')
-		return (NULL);
-	dest = (char *)malloc(ft_strlen(s) + 1);
-	if (!(dest))
-		return (NULL);
-	i = 0;
-	while (s[j])
-	{
-		dest[i] = s[j];
-		j++;
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
 
 	if (s == NULL)
 		return (NULL);
-	if (c == '\0')
-	{
-		ptr = (char **)malloc(2 * sizeof(char *));
-		if (!(ptr))
-			return (NULL);
-		ptr[0] = cpynul(s);
-		ptr[1] = NULL;
-		return (ptr);
-	}
-	return (sep_mot(s, c));
+	ptr = sep_mot(s, c);
+	if (!ptr)
+		return (NULL);
+	return (ptr);
 }
 /*
 int main()
