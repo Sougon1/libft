@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:59 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/13 13:09:11 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/13 15:17:15 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -75,7 +75,7 @@ static char	**sep_mot(const char *s, char c)
 
 	nbr_mot2 = nbr_mot(s, c);
 	ptr = (char **)malloc((nbr_mot2 + 1) * sizeof(char *));
-	if (!(ptr))
+	if (!ptr)
 		return (NULL);
 	i = 0;
 	while (i < nbr_mot2)
@@ -85,11 +85,8 @@ static char	**sep_mot(const char *s, char c)
 		if (*s)
 		{
 			ptr[i] = mot(s, c);
-			if (ptr[i] == NULL)
-			{
-				free_mem(ptr);
+			if (!ptr[i] && (free_mem(ptr), 1))
 				return (NULL);
-			}
 			i++;
 		}
 		while (*s && *s != c)
