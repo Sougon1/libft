@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:44:51 by ghumm             #+#    #+#             */
-/*   Updated: 2023/10/27 15:07:08 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/13 16:54:35 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,10 +27,39 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end > start && ft_strchr(set, s1[end -1]))
 		end--;
 	dif = end - start;
+/*	if (dif + 1 > SIZE_MAX)
+	{
+		return (NULL);
+	}*/
 	ptr = (char *)malloc(dif + 1);
-	if (!(ptr))
+	if (!ptr)
 		return (NULL);
 	ft_memcpy(ptr, s1 + start, dif);
 	ptr[dif] = '\0';
 	return (ptr);
 }
+
+int main() {
+    // Création d'une chaîne très grande
+    const char *original = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ";
+    
+    // Création d'un ensemble de caractères à retirer (set)
+    const char *set = " ";
+
+    // Appel de la fonction ft_strtrim
+    char *trimmed = ft_strtrim(original, set);
+
+    // Vérification du résultat
+    if (trimmed) {
+        printf("Chaîne d'origine : '%s'\n", original);
+        printf("Chaîne après trim : '%s'\n", trimmed);
+
+        // N'oubliez pas de libérer la mémoire allouée
+        free(trimmed);
+    } else {
+        printf("Erreur lors de l'appel à ft_strtrim.\n");
+    }
+
+    return 0;
+}
+
