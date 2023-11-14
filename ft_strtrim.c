@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:44:51 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/13 16:54:35 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/14 10:18:41 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,10 +27,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (end > start && ft_strchr(set, s1[end -1]))
 		end--;
 	dif = end - start;
-/*	if (dif + 1 > SIZE_MAX)
+	if (dif + 1 > SIZE_MAX)
 	{
+		free(ptr);
 		return (NULL);
-	}*/
+	}
 	ptr = (char *)malloc(dif + 1);
 	if (!ptr)
 		return (NULL);
@@ -38,13 +39,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ptr[dif] = '\0';
 	return (ptr);
 }
-
+/*
 int main() {
     // Création d'une chaîne très grande
-    const char *original = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ";
-    
+    const char *original = "A B C D E F G H I J K L M \
+	N O P Q R S T U V W X Y Z ";
+
     // Création d'un ensemble de caractères à retirer (set)
     const char *set = " ";
+
+    // Forcer une valeur très grande pour dif
 
     // Appel de la fonction ft_strtrim
     char *trimmed = ft_strtrim(original, set);
@@ -57,9 +61,9 @@ int main() {
         // N'oubliez pas de libérer la mémoire allouée
         free(trimmed);
     } else {
-        printf("Erreur lors de l'appel à ft_strtrim.\n");
+        printf("Erreur lors de l'appel à ft_strtrim\
+		(possiblement dépassement de SIZE_MAX).\n");
     }
 
     return 0;
-}
-
+}*/

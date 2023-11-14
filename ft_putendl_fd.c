@@ -6,16 +6,19 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:12:11 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/03 15:17:44 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/14 10:30:05 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	while (*s)
 	{	
-		write(fd, s, 1);
+		if (write(fd, s, 1) == -1)
+			return ;
 		s++;
 	}
 	write(fd, "\n", 1);
