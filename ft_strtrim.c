@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:44:51 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/15 14:24:42 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/15 14:40:07 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,21 +18,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	dif;
 	char	*ptr;
 
-	ptr = NULL;
 	start = 0;
-	end = ft_strlen(s1);
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	while (s1[start] && ft_strchr(set, s1[start]))
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strchr(set, s1[start]) && start < end)
 		start++;
-	while (end > start && ft_strchr(set, s1[end -1]))
+	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
 	dif = end - start;
-	if (dif + 1 > SIZE_MAX)
-	{
-		free(ptr);
+	if (dif == SIZE_MAX)
 		return (NULL);
-	}		
 	ptr = (char *)malloc(dif + 1);
 	if (!ptr)
 		return (NULL);
