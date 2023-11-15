@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 16:44:51 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/14 10:18:41 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/15 14:19:24 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,10 +28,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		end--;
 	dif = end - start;
 	if (dif + 1 > SIZE_MAX)
-	{
-		free(ptr);
 		return (NULL);
-	}
 	ptr = (char *)malloc(dif + 1);
 	if (!ptr)
 		return (NULL);
