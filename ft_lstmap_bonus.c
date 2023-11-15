@@ -6,7 +6,7 @@
 /*   By: ghumm <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:55:30 by ghumm             #+#    #+#             */
-/*   Updated: 2023/11/10 11:43:30 by ghumm            ###   ########.fr       */
+/*   Updated: 2023/11/15 16:05:10 by ghumm            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,7 +28,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 		new_node = ft_lstnew(new_content);
 		if (!new_node)
 		{
-			del(new_content);
+			free(new_content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
